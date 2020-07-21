@@ -1,0 +1,4 @@
+2015-04-06 21:37:14,746 [main] INFO  com.appender.program.ProgrammticallyConfigureAppenderExample  - Welcome to www.HowToDoInJava.com
+2015-04-06 21:37:14,747 [main] DEBUG com.appender.program.ProgrammticallyConfigureAppenderExample  - Welcome to www.HowToDoInJava.com
+2015-04-06 21:37:14,747 [main] ERROR com.appender.program.ProgrammticallyConfigureAppenderExample  - Welcome to www.HowToDoInJava.com
+2015-04-06 21:37:14,747 [main] FATAL com.appender.program.ProgrammticallyConfigureAppenderExample  - Welcome to www.HowToDoInJava.com

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<included>
+	<appender name="Lilith_Error" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+	
+		<Compressing>true</Compressing> <!-- will automatically use correct default port -->
+		<ReconnectionDelay>10000</ReconnectionDelay>
+		<IncludeCallerData>true</IncludeCallerData>
+		<RemoteHosts>localhost</RemoteHosts>
+	</appender>
+
+	<appender name="Lilith_Trace" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+		<Compressing>true</Compressing> <!-- will automatically use correct default port -->
+		<ReconnectionDelay>10000</ReconnectionDelay>
+		<IncludeCallerData>false</IncludeCallerData>
+		<RemoteHosts>localhost</RemoteHosts>
+	</appender>
+	
+	<root>
+		<appender-ref ref="Lilith_Error" />
+	</root>
+</included>

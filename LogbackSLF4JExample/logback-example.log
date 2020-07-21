@@ -1,0 +1,181 @@
+2015-04-06_23:14:52.150 [main] INFO  com.logback.demo.MarcoPoloBean -
+				Hello there. I am I'm Marco
+2015-04-06_23:14:52.156 [main] DEBUG com.logback.demo.MarcoPoloBean -
+				Debugging message
+2015-04-06_23:14:52.156 [main] DEBUG com.logback.demo.App -
+				I am Polo
+2015-04-10_12:45:53.896 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:45:53.900 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:45:53.900 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10_12:45:53.900 [main] DEBUG com.logback.demo.BasicConfApp -
+				Msg #4
+2015-04-10_12:47:24.866 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:47:24.870 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:47:24.870 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10_12:47:24.870 [main] DEBUG com.logback.demo.BasicConfApp -
+				Msg #4
+2015-04-10_12:48:08.786 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:48:08.790 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:48:08.790 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10_12:48:08.790 [main] DEBUG com.logback.demo.BasicConfApp -
+				Msg #4
+2015-04-10_12:50:26.127 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:50:26.132 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:50:26.132 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10_12:50:26.132 [main] DEBUG com.logback.demo.BasicConfApp -
+				Msg #4
+2015-04-10_12:52:49.387 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:52:49.387 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:52:49.387 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10_12:57:20.780 [main] INFO  com.logback.demo.BasicConfApp -
+				Msg #1
+2015-04-10_12:57:20.784 [main] WARN  com.logback.demo.BasicConfApp -
+				Msg #2
+2015-04-10_12:57:20.784 [main] ERROR com.logback.demo.BasicConfApp -
+				Msg #3
+2015-04-10 13:12:29,594 320  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 13:12:29,594 320  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 13:12:29,594 320  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 13:14:46,234 264  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 13:14:46,240 270  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 13:14:46,240 270  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 13:19:32,774 2306 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 13:19:32,869 2401 [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 13:19:32,869 2401 [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 13:21:07,942 338  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 13:21:07,947 343  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 13:21:07,947 343  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 13:24:05,586 265  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 13:24:05,589 268  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 13:24:05,589 268  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 15:15:50,056 335  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 15:15:50,060 339  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 15:15:50,060 339  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 15:16:12,474 295  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 15:16:12,478 299  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 15:16:12,478 299  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 15:21:39,283 276  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 15:21:39,288 281  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 15:21:39,289 282  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 16:21:50,148 330  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 16:21:50,148 330  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 16:21:50,148 330  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 16:25:36,055 332  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 16:25:36,065 342  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 16:25:36,065 342  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:33:13,930 1357 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:35:01,260 1367 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:36:10,453 328  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:36:10,459 334  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:36:10,459 334  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:37:58,968 382  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:37:58,974 388  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:37:58,975 389  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:38:47,484 364  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:38:47,488 368  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:38:47,489 369  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:39:16,018 328  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:39:16,022 332  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:39:16,022 332  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:39:58,241 318  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:39:58,245 322  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:39:58,245 322  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:40:23,572 324  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:40:23,576 328  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 18:40:23,576 328  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 18:41:54,540 1356 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:42:13,250 1353 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 18:42:33,527 1348 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 19:03:24,002 1381 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 19:03:24,228 1607 [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 19:03:24,233 1612 [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:30:09,387 1354 [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:30:09,646 1613 [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:30:09,650 1617 [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:36:02,927 276  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:36:02,930 279  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:36:02,931 280  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:36:50,602 277  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:36:50,606 281  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:36:50,606 281  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:38:19,547 269  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:38:19,551 273  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:38:19,552 274  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:40:02,119 268  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:40:02,122 271  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:40:02,122 271  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 20:55:30,957 267  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 20:55:30,960 270  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 20:55:30,961 271  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:07:19,788 251  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:07:19,792 255  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:07:19,792 255  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:12:24,752 252  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:12:24,756 256  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:12:24,756 256  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:13:00,576 275  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:13:00,580 279  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:13:00,580 279  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:17:24,662 248  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:17:24,666 252  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:17:24,666 252  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:36:15,691 253  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:36:15,694 256  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:36:15,695 257  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:36:44,763 256  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:36:44,767 260  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:36:44,767 260  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:40:35,658 252  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:40:35,662 256  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:40:35,662 256  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:41:14,154 285  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:41:14,157 288  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:41:14,158 289  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:42:47,299 258  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:42:47,302 261  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:42:47,303 262  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:44:19,139 290  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:44:19,142 293  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:44:19,143 294  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:46:53,536 252  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:46:53,540 256  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:46:53,541 257  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:47:47,056 302  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:47:47,060 306  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:47:47,060 306  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:49:20,474 274  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:49:20,478 278  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:49:20,478 278  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 21:49:40,894 248  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 21:49:40,897 251  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 21:49:40,897 251  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 22:19:54,462 280  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 22:19:54,465 283  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 22:19:54,465 283  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 22:24:40,730 271  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 22:24:40,734 275  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 22:24:40,734 275  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 22:36:34,303 283  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 22:36:34,307 287  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 22:36:34,307 287  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 22:37:21,498 270  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 22:37:21,503 275  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 22:37:21,504 276  [main] ERROR com.logback.demo.BasicConfApp - Msg #3
+2015-04-10 22:42:34,171 274  [main] INFO  com.logback.demo.BasicConfApp - Msg #1
+2015-04-10 22:42:34,176 279  [main] WARN  com.logback.demo.BasicConfApp - Msg #2
+2015-04-10 22:42:34,176 279  [main] ERROR com.logback.demo.BasicConfApp - Msg #3

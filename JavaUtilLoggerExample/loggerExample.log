@@ -1,0 +1,6 @@
+Apr 06, 2015 8:41:50 PM com.util.logging.demo.LoggerTest main
+INFO: message 1
+Apr 06, 2015 8:41:50 PM com.util.logging.demo.LoggerTest main
+SEVERE: message 2
+Apr 06, 2015 8:41:50 PM com.util.logging.demo.LoggerTest2 thing
+WARNING: something to log

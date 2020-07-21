@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<included>
+
+	<!-- Do not change this CIC layout pattern -->
+	<property name="intershop.CICLayout" value="[%date{yyyy-MM-dd HH:mm:ss.SSS Zz}] %-5level ${intershop.HostName} ${intershop.InstallationID} ${intershop.ServerName} [%mdc{requestsite}] [%mdc{requestapplication}] %logger [%marker] [%mdc{request.type}] [%mdc{session.id}] [%mdc{request.uuid}] &quot;%thread&quot; %msg %ex%n%mdc{request.info}"/>
+
+
+	<appender name="Error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="JobContextFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="NoImpexFileLogger">
+				<expression>!logger.equals("com.intershop.beehive.core.internal.impex.FileLogger")</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/error-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/error-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<FileHeader>${intershop.CICLayout}</FileHeader>
+				<Pattern>${intershop.CICLayout}</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+	
+	<appender name="Sql" class="ch.qos.logback.core.FileAppender">
+	  <filter name="SQLMarkerFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+		<evaluator name="OnlySQL">
+		  <expression>
+			((marker!=null) &amp;&amp; (marker.getName().equals("sql")) || 
+			logger.startsWith("com.intershop.beehive.orm"))
+		  </expression>
+		</evaluator>
+		<OnMatch>NEUTRAL</OnMatch>
+		<OnMismatch>DENY</OnMismatch>
+	  </filter>
+	  <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+		<level>TRACE</level>
+	  </filter>
+	  <File>${intershop.logfile.Directory}/sql-${intershop.logfile.NamePostfix}.log</File>
+	  <layout class="ch.qos.logback.classic.PatternLayout">
+		<Pattern>
+		  [%date{yyyy-MM-dd HH:mm:ss.SSS z}] %-5level 
+		  ${intershop.HostName}${intershop.InstallationID} ${intershop.ServerName}
+		  [%thread] [%mdc{request.type}] [%mdc{session.id}] [%mdc{request.uuid}]
+		  %msg %ex%n
+		</Pattern>
+	  </layout>
+	</appender>
+
+	<appender name="Audits" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="Audits" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="OnlyAudits">
+				<expression>(marker!=null) &amp;&amp; (marker.getName().equals("audits"))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/audits-PCI-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/audits-PCI-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>[%date{yyyy-MM-dd HH:mm:ss.SSS z}] %msg %ex%n</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+	
+	<!-- Use this appender to send audit log entries to a remote logback server -->	
+	<!-- 
+	<appender name="RemoteAudits" class="ch.qos.logback.classic.net.SocketAppender">
+		<remoteHost>[IP of the host running a logback server]</remoteHost>
+		<port>[Port of the logback server]</port>
+		<reconnectionDelay>5000</reconnectionDelay>
+		<includeCallerData>true</includeCallerData>
+		
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="Audits" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="OnlyAudits">
+				<expression>(marker!=null) &amp;&amp; (marker.getName().equals("audits"))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+	</appender>  
+	--> 
+
+	<!-- Use this appender to send audit log entries to a syslog daemon -->
+	<!-- 
+	<appender name="SyslogAudits" class="ch.qos.logback.classic.net.SyslogAppender">
+		<syslogHost>[IP of the host running the syslog daemon]</syslogHost>
+		<facility>AUTH</facility>
+		<port>514</port>		
+		<suffixPattern>%msg %ex%n</suffixPattern>		
+				
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="Audits" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="OnlyAudits">
+				<expression>(marker!=null) &amp;&amp; (marker.getName().equals("audits"))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+	</appender>
+ 	-->
+ 	
+	<appender name="Warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="JobContextFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="NoImpexFileLogger">
+				<expression>!logger.equals("com.intershop.beehive.core.internal.impex.FileLogger")</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<filter name="YUIJSErrorReporterFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="YUIJSErrorFileLogger">
+				<expression>!logger.equals("com.intershop.beehive.core.internal.resource.YUIJSErrorReporter")</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/warn-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/warn-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<FileHeader>${intershop.CICLayout}</FileHeader>
+				<Pattern>${intershop.CICLayout}</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="ImpexError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<filter name="JobContextFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="ImpexProcessOnly">
+				<expression>(mdc!=null) &amp;&amp; (mdc.containsKey("impex"))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/impex-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/impex-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					[%date{yyyy-MM-dd HH:mm:ss.SSS zZ}] [%thread] [%mdc{impex}] %-5level %logger %marker - %msg %ex%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="Job" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<filter name="JobContextFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="JobOnly">
+				<expression>(mdc!=null) &amp;&amp; (mdc.containsKey("job"))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/job-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/job-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					[%date{yyyy-MM-dd HH:mm:ss.SSS zZ}] [%thread] [Job:%mdc{job.name}] [Req:%mdc{request.uuid}] %-5level %logger %marker - %msg %ex%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="Staging" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<filter name="StagingContextFilter" class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="StagingProcessOnly">
+				<expression>(mdc!=null) &amp;&amp; ("StagingProcess".equals(mdc.get("process.name")))</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/staging-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/staging-${intershop.logfile.NamePostfix}-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level - %msg %ex%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="Debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="IntershopOnly">
+				<expression>logger.contains("intershop") || logger.startsWith("ish.")</expression>
+			</evaluator>
+			<OnMatch>NEUTRAL</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<File>${intershop.logfile.Directory}/debug-${intershop.logfile.NamePostfix}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${intershop.logfile.Directory}/debug-${intershop.logfile.NamePostfix}.%i.log</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>5</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>[%date{yyyy-MM-dd HH:mm:ss.SSS zZ}] %-5level ${intershop.HostName} ${intershop.InstallationID} ${intershop.ServerName} [%mdc{requestsite}] [%mdc{requestapplication}] %logger [%marker] [%mdc{request.type}] [%mdc{session.id}] [%mdc{request.uuid}] &quot;%thread&quot; %msg %ex%n</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+
+	<appender name="WarnConsole" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					[%date{yyyy-MM-dd HH:mm:ss.SSS z}] [%thread] %-5level %logger{36} %marker - %msg %ex%n %mdc{request.info}%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="TraceConsole" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<OnMatch>ACCEPT</OnMatch>
+			<OnMismatch>NEUTRAL</OnMismatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<OnMatch>ACCEPT</OnMatch>
+			<OnMismatch>NEUTRAL</OnMismatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<OnMatch>ACCEPT</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					[%date{yyyy-MM-dd HH:mm:ss.SSS z}] [%thread] %-5level %logger{36} %marker %mdc{pipelinestack.last} - %msg %ex%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="ServerStartupConsole" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					%-5level - %msg%n
+				</Pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<root>
+		<!-- Do not change the level at the root category -->
+		<level value="TRACE" />
+		<appender-ref ref="Error" />
+		<appender-ref ref="Warn" />
+		<appender-ref ref="ImpexError" />
+		 <appender-ref ref="Debug" /> 
+		<appender-ref ref="Job" />
+		<appender-ref ref="Staging" />
+		 <appender-ref ref="Sql" /> 
+		<appender-ref ref="WarnConsole" /> 
+		<appender-ref ref="Audits" />
+		
+		<!-- Additional audit log targets for centralized logging -->
+		<!-- <appender-ref ref="RemoteAudits" />  -->
+		<!-- <appender-ref ref="SyslogAudits" />  --> 
+	</root>
+
+	<logger name="org">
+	    <level value="INFO" />
+	</logger>
+
+	<logger name="javax">
+	    <level value="INFO" />
+	</logger>
+
+	<logger name="java.awt">
+	    <level value="INFO" />
+	</logger>
+
+	<logger name="tomcat">
+	    <level value="INFO" />
+	</logger>
+
+	<logger name="sun">
+		<level value="INFO" />
+	</logger>
+	
+	<logger name="com.sun">
+		<level value="INFO" />
+	</logger>
+
+	<logger name="org.apache.catalina.startup.Catalina">
+	    <level value="INFO" />
+		<appender-ref ref="ServerStartupConsole" />
+	</logger>
+
+	<logger name="org.apache.jasper.compiler.Compiler" additivity="false">
+	    <level value="INFO" />
+	</logger>
+
+<!-- 
+	avoid error messages from sandesha startup
+	Message "Could not load module policies. Using default values."
+	http://issues.apache.org/jira/browse/SANDESHA2-187
+-->	
+	<logger name="org.apache.sandesha2.SandeshaModule" additivity="false">
+		<level value="OFF" />
+	</logger>
+
+</included>

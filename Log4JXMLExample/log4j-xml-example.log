@@ -1,0 +1,5 @@
+2015-04-10 21:38:30 DEBUG HelloExample:19 - This is debug : ashish
+2015-04-10 21:38:30 INFO  HelloExample:23 - This is info : ashish
+2015-04-10 21:38:30 WARN  HelloExample:26 - This is warn : ashish
+2015-04-10 21:38:30 ERROR HelloExample:27 - This is error : ashish
+2015-04-10 21:38:30 FATAL HelloExample:28 - This is fatal : ashish

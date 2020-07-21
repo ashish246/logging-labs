@@ -1,0 +1,20 @@
+<log4j:event logger="com.log4j.formatter.demo.Log4jXMLLayoutExample" timestamp="1428320022233" level="DEBUG" thread="main">
+<log4j:message><![CDATA[Sample debug message]]></log4j:message>
+<log4j:locationInfo class="com.log4j.formatter.demo.Log4jXMLLayoutExample" method="main" file="Log4jXMLLayoutExample.java" line="12"/>
+</log4j:event>
+
+<log4j:event logger="com.log4j.formatter.demo.Log4jXMLLayoutExample" timestamp="1428320022236" level="INFO" thread="main">
+<log4j:message><![CDATA[Sample info message]]></log4j:message>
+<log4j:locationInfo class="com.log4j.formatter.demo.Log4jXMLLayoutExample" method="main" file="Log4jXMLLayoutExample.java" line="13"/>
+</log4j:event>
+
+<log4j:event logger="com.log4j.formatter.demo.Log4jXMLLayoutExample" timestamp="1428320022236" level="ERROR" thread="main">
+<log4j:message><![CDATA[Sample error message]]></log4j:message>
+<log4j:locationInfo class="com.log4j.formatter.demo.Log4jXMLLayoutExample" method="main" file="Log4jXMLLayoutExample.java" line="14"/>
+</log4j:event>
+
+<log4j:event logger="com.log4j.formatter.demo.Log4jXMLLayoutExample" timestamp="1428320022237" level="FATAL" thread="main">
+<log4j:message><![CDATA[Sample fatal message]]></log4j:message>
+<log4j:locationInfo class="com.log4j.formatter.demo.Log4jXMLLayoutExample" method="main" file="Log4jXMLLayoutExample.java" line="15"/>
+</log4j:event>
+

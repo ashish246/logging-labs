@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+  xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.intershop"  module="dev_lilith" revision="${version.number}.${build.number}">
+		<description></description>
+		<e:displayname>Development - Lilith Integration</e:displayname>
+	</info>
+	<configurations defaultconf="default" confmappingoverride="true">
+		<conf name="runtime" extends="default" visibility="public" description="Configuration for all runtime dependencies"/>
+		<conf name="compile" extends="default" visibility="public" description="Configuration for all compile time dependencies"/>
+		<conf name="default" visibility="public" description="Configuration for all dependencies, that are runtime and compile time dependencies."/>		
+	</configurations>
+	<dependencies>
+		<dependency org="com.intershop" name="core" rev="${version.number}.+"/>
+	</dependencies>
+</ivy-module>  
